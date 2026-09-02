@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" role="img" aria-labelledby="title description">
+  <title id="title">Image processing examples</title>
+  <desc id="description">Six grayscale panels showing the synthetic input, contrast, gamma, Gaussian blur, Sobel X and drawing operations.</desc>
+  <defs>
+    <linearGradient id="input" x1="0" x2="1">
+      <stop offset="0" stop-color="#202020"/>
+      <stop offset="0.5" stop-color="#888"/>
+      <stop offset="1" stop-color="#dedede"/>
+    </linearGradient>
+    <linearGradient id="contrast" x1="0" x2="1">
+      <stop offset="0.15" stop-color="#050505"/>
+      <stop offset="0.55" stop-color="#929292"/>
+      <stop offset="0.88" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="gamma" x1="0" x2="1">
+      <stop offset="0" stop-color="#383838"/>
+      <stop offset="0.35" stop-color="#ababab"/>
+      <stop offset="1" stop-color="#f3f3f3"/>
+    </linearGradient>
+    <pattern id="checker" width="48" height="48" patternUnits="userSpaceOnUse">
+      <rect width="48" height="48" fill="transparent"/>
+      <rect width="24" height="24" fill="#fff" opacity=".13"/>
+      <rect x="24" y="24" width="24" height="24" fill="#fff" opacity=".13"/>
+      <rect x="24" width="24" height="24" fill="#000" opacity=".13"/>
+      <rect y="24" width="24" height="24" fill="#000" opacity=".13"/>
+    </pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="3"/></filter>
+    <g id="waves" fill="none" stroke="#fff" opacity=".15" stroke-width="16">
+      <path d="M0 25 Q65 0 130 25 T260 25"/>
+      <path d="M0 82 Q65 57 130 82 T260 82"/>
+      <path d="M0 139 Q65 114 130 139 T260 139"/>
+    </g>
+    <g id="base-panel">
+      <rect width="260" height="180" fill="url(#input)"/>
+      <rect width="260" height="180" fill="url(#checker)"/>
+      <use href="#waves"/>
+    </g>
+  </defs>
+
+  <rect width="900" height="500" rx="12" fill="#0b1220"/>
+
+  <g font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#f8fafc">
+    <text x="25" y="31">Input</text>
+    <text x="320" y="31">Contrast</text>
+    <text x="615" y="31">Gamma</text>
+    <text x="25" y="274">Gaussian blur</text>
+    <text x="320" y="274">Sobel X</text>
+    <text x="615" y="274">Drawing</text>
+  </g>
+
+  <g transform="translate(25 42)"><use href="#base-panel"/></g>
+  <g transform="translate(320 42)">
+    <rect width="260" height="180" fill="url(#contrast)"/>
+    <rect width="260" height="180" fill="url(#checker)" opacity="1.35"/>
+    <use href="#waves"/>
+  </g>
+  <g transform="translate(615 42)">
+    <rect width="260" height="180" fill="url(#gamma)"/>
+    <rect width="260" height="180" fill="url(#checker)" opacity=".75"/>
+    <use href="#waves" opacity=".6"/>
+  </g>
+  <g transform="translate(25 285)" filter="url(#blur)"><use href="#base-panel"/></g>
+  <g transform="translate(320 285)">
+    <rect width="260" height="180" fill="#07090d"/>
+    <g stroke="#e6e6e6" stroke-width="2" opacity=".8">
+      <path d="M24 0v180M48 0v180M72 0v180M96 0v180M120 0v180M144 0v180M168 0v180M192 0v180M216 0v180M240 0v180"/>
+    </g>
+    <g stroke="#777" stroke-width="1" opacity=".45">
+      <path d="M0 45h260M0 90h260M0 135h260"/>
+    </g>
+  </g>
+  <g transform="translate(615 285)">
+    <use href="#base-panel"/>
+    <g fill="none" stroke="#fff" stroke-width="3">
+      <rect x="22" y="20" width="96" height="70"/>
+      <path d="M16 158L238 32"/>
+      <circle cx="186" cy="112" r="42"/>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#3b82f6" stroke-width="1">
+    <rect x="24.5" y="41.5" width="261" height="181"/>
+    <rect x="319.5" y="41.5" width="261" height="181"/>
+    <rect x="614.5" y="41.5" width="261" height="181"/>
+    <rect x="24.5" y="284.5" width="261" height="181"/>
+    <rect x="319.5" y="284.5" width="261" height="181"/>
+    <rect x="614.5" y="284.5" width="261" height="181"/>
+  </g>
+</svg>
